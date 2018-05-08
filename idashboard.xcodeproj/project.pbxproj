@@ -32,10 +32,10 @@
 		30864DA220941A1500CB8EEC /* subbplancontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30864DA120941A1500CB8EEC /* subbplancontroller.swift */; };
 		30864DA4209428F200CB8EEC /* subbplancell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30864DA3209428F200CB8EEC /* subbplancell.swift */; };
 		30864DA620942A6B00CB8EEC /* subbplanobject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30864DA520942A6B00CB8EEC /* subbplanobject.swift */; };
-		308952442090653500EFD9DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 308952432090653500EFD9DE /* GoogleService-Info.plist */; };
 		308952462090700900EFD9DE /* dashboardpage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308952452090700900EFD9DE /* dashboardpage.swift */; };
 		3091E28F20901BCE00147F9F /* ragistrationctrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3091E28E20901BCE00147F9F /* ragistrationctrl.swift */; };
 		309B346D208EBFB600B29C9E /* loginpagecontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B346C208EBFB600B29C9E /* loginpagecontroller.swift */; };
+		30AE7B3D20A13DF700AADC3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AE7B3C20A13DF600AADC3B /* GoogleService-Info.plist */; };
 		30B744742096C6BC0045EC99 /* fiberplancontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B744732096C6BC0045EC99 /* fiberplancontroller.swift */; };
 		30B744762096C7220045EC99 /* fiberplancell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B744752096C7220045EC99 /* fiberplancell.swift */; };
 		30B744782096C7C30045EC99 /* fiberplanobject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B744772096C7C30045EC99 /* fiberplanobject.swift */; };
@@ -96,10 +96,10 @@
 		30864DA120941A1500CB8EEC /* subbplancontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subbplancontroller.swift; sourceTree = "<group>"; };
 		30864DA3209428F200CB8EEC /* subbplancell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subbplancell.swift; sourceTree = "<group>"; };
 		30864DA520942A6B00CB8EEC /* subbplanobject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subbplanobject.swift; sourceTree = "<group>"; };
-		308952432090653500EFD9DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		308952452090700900EFD9DE /* dashboardpage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashboardpage.swift; sourceTree = "<group>"; };
 		3091E28E20901BCE00147F9F /* ragistrationctrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ragistrationctrl.swift; sourceTree = "<group>"; };
 		309B346C208EBFB600B29C9E /* loginpagecontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginpagecontroller.swift; sourceTree = "<group>"; };
+		30AE7B3C20A13DF600AADC3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30B744732096C6BC0045EC99 /* fiberplancontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiberplancontroller.swift; sourceTree = "<group>"; };
 		30B744752096C7220045EC99 /* fiberplancell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiberplancell.swift; sourceTree = "<group>"; };
 		30B744772096C7C30045EC99 /* fiberplanobject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiberplanobject.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 		30CBA812208DBA740026D45F /* idashboard */ = {
 			isa = PBXGroup;
 			children = (
-				308952432090653500EFD9DE /* GoogleService-Info.plist */,
+				30AE7B3C20A13DF600AADC3B /* GoogleService-Info.plist */,
 				30CBA813208DBA740026D45F /* AppDelegate.swift */,
 				30CBA815208DBA740026D45F /* ViewController.swift */,
 				30CBA817208DBA740026D45F /* Main.storyboard */,
@@ -381,7 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30CBA81E208DBA750026D45F /* LaunchScreen.storyboard in Resources */,
-				308952442090653500EFD9DE /* GoogleService-Info.plist in Resources */,
+				30AE7B3D20A13DF700AADC3B /* GoogleService-Info.plist in Resources */,
 				30CBA81B208DBA750026D45F /* Assets.xcassets in Resources */,
 				30CBA819208DBA740026D45F /* Main.storyboard in Resources */,
 			);

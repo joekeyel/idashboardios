@@ -22,16 +22,27 @@ class loginpagecontroller: UIViewController {
         
        FIRAuth.auth()?.addStateDidChangeListener { (auth, user) in
         
-        
+        let emailstr : String = self.email.text!
         if(user != nil){
-            
+            if !(user?.isEmailVerified)!{
+                let alertVC = UIAlertController(title: "Error", message: "Sorry. Your email address has not yet been verified. Do you want us to send another verification email to \(emailstr).", preferredStyle: .alert)
+                let alertActionOkay = UIAlertAction(title: "Okay", style: .default) {
+                    (_) in
+                    user?.sendEmailVerification(completion: nil)
+                }
+                let alertActionCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                
+                alertVC.addAction(alertActionOkay)
+                alertVC.addAction(alertActionCancel)
+                self.present(alertVC, animated: true, completion: nil)
+            }else{
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
             let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "dashboard") as! dashboardpage
             
             self.navigationController?.pushViewController(initialViewController2, animated: true)
-            
+            }
             
         }
         }
@@ -61,21 +72,89 @@ class loginpagecontroller: UIViewController {
         let email : String = self.email.text!
         let password: String = self.password.text!
         
-        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
-           
-            if(user != nil){
+//        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+//
+//        if(error == nil){
+//
+//            if(user != nil){
+//                if(user?.isEmailVerified == true){
+//
+//                self.showToast(message: (user?.email!)!)
+//
+//                FIRAuth.auth()?.addStateDidChangeListener { (auth, user) in
+//
+//
+//
+//
+//
+//                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//                        let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "dashboard") as! dashboardpage
+//
+//                        self.navigationController?.pushViewController(initialViewController2, animated: true)
+//
+//
+//
+//                }
+//
+//                    }
+//
+//                    else{
+//
+//                        self.showToast(message: "Please verify your email")
+//
+//                    }
+//                }
+//            }else{
+//
+//                self.showToast(message: error.debugDescription)
+//            }
+//
+//        }
+
+        
+        FIRAuth.auth()?.signIn(withEmail: email, password: password) {
+            (user, error) in
+            if let user = FIRAuth.auth()?.currentUser {
+                if !user.isEmailVerified{
+                    let alertVC = UIAlertController(title: "Error", message: "Sorry. Your email address has not yet been verified. Do you want us to send another verification email to \(email).", preferredStyle: .alert)
+                    let alertActionOkay = UIAlertAction(title: "Okay", style: .default) {
+                        (_) in
+                        user.sendEmailVerification(completion: nil)
+                    }
+                    let alertActionCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                    
+                    alertVC.addAction(alertActionOkay)
+                    alertVC.addAction(alertActionCancel)
+                    self.present(alertVC, animated: true, completion: nil)
+                } else {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                                            let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "dashboard") as! dashboardpage
+                    
+                                            self.navigationController?.pushViewController(initialViewController2, animated: true)
+                }
+            }
+            
+            if(error != nil){
                 
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                
-                let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "dashboard") as! dashboardpage
-                
-                self.navigationController?.pushViewController(initialViewController2, animated: true)
-                
+               
+                    
+                    let alertVC = UIAlertController(title: "Error", message: error.debugDescription, preferredStyle: .alert)
+                    let alertActionOkay = UIAlertAction(title: "Okay", style: .default) {
+                        (_) in
+                        
+                    }
+                    
+                    
+                    alertVC.addAction(alertActionOkay)
+                    
+                    self.present(alertVC, animated: true, completion: nil)
+                    
                 
             }
         }
-
+        
         
     }
     

@@ -63,16 +63,26 @@ class dashboardpage: UIViewController {
         let result = formatter.string(from: date)
         currentdate.setTitle(result, for: .normal)
        self.title = "REALTIME IPMSAN DASHBOARD"
+         self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Arial", size: 12)!]
+      
       
     }
     
     @objc func logoutfirebase(){
         
         try! FIRAuth.auth()!.signOut()
-        if let storyboard = self.storyboard {
-            let vc = storyboard.instantiateViewController(withIdentifier: "startpage") as! ViewController
-            self.present(vc, animated: false, completion: nil)
-        }
+    
+            
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let initialViewController2 = storyboard.instantiateViewController(withIdentifier: "startpage") as! ViewController
+            
+            self.navigationController?.pushViewController(initialViewController2, animated: true)
+            
+            
+        
+        
     }
 
     func fetch1(){
@@ -559,6 +569,6 @@ class dashboardpage: UIViewController {
         let result = formatter.string(from: date)
         currentdate.setTitle(result, for: .normal)
         self.title = "REALTIME IPMSAN DASHBOARD"
-    }
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSAttributedStringKey.font: UIFont(name: "Arial", size: 12)!]    }
     
 }

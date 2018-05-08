@@ -36,7 +36,17 @@ class ragistrationctrl: UIViewController {
             print(error.debugDescription)
             }
             else{
-                print(user?.email)
+                let alertVC = UIAlertController(title: "Alert", message: "Press ok for verification email will be sent to \(email).", preferredStyle: .alert)
+                let alertActionOkay = UIAlertAction(title: "Okay", style: .default) {
+                    (_) in
+                    user?.sendEmailVerification(completion: nil)
+                }
+                let alertActionCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                
+                alertVC.addAction(alertActionOkay)
+                alertVC.addAction(alertActionCancel)
+                self.present(alertVC, animated: true, completion: nil)
+                  user?.sendEmailVerification(completion: nil)
             }
         }
     }
@@ -53,11 +63,14 @@ extension UIViewController {
     
     func showToast(message : String) {
         
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 150, y: self.view.frame.size.height-100, width: 300, height: 100))
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.textAlignment = .center;
-        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 8)
+        toastLabel.numberOfLines = 0
+        toastLabel.contentMode = .scaleToFill
+     
         toastLabel.text = message
         toastLabel.alpha = 1.0
         toastLabel.layer.cornerRadius = 10;
